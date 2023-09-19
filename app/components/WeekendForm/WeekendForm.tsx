@@ -39,7 +39,7 @@ const WeekendForm: FC<pageProps> = ({
   setSessions,
   handleSubmit,
 }) => {
-  const { back } = useRouter();
+  const { push } = useRouter();
   const confirm = useConfirm();
 
   const handleBack = () => {
@@ -47,7 +47,7 @@ const WeekendForm: FC<pageProps> = ({
       description: "You will leave this page without saving changes?",
     })
       .then(async () => {
-        back();
+        push("/");
       })
       .catch(() => {});
   };

@@ -1,7 +1,7 @@
 import AddIcon from "@mui/icons-material/Add";
 import Fab from "@mui/material/Fab";
 import Link from "next/link";
-import React from 'react';
+import React from "react";
 
 function AddWeekendBtn() {
   return (
@@ -26,4 +26,4 @@ function AddWeekendBtn() {
   );
 }
 
-export default AddWeekendBtn
+export default AddWeekendBtn;

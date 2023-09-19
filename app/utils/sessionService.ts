@@ -31,6 +31,5 @@ export const SortSessions = (a:Session, b:Session) => {
 
 const getNumberFromName = (name: string) => {
   const match = name.match(/\d+/);
-  console.log(match);
   return match ? parseInt(match[0], 10) : null;
 };

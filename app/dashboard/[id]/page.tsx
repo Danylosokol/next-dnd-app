@@ -1,7 +1,10 @@
 "use client";
 
 import React, { FC, useEffect, useState } from "react";
-import { calculateAvailableTyreSets, checkForShortage } from "@/app/utils/dashboardLogic";
+import {
+  calculateAvailableTyreSets,
+  checkForShortage,
+} from "@/app/utils/dashboardLogic";
 
 import { Button } from "@mui/material";
 import { CircularProgress } from "@mui/material";
@@ -39,7 +42,7 @@ const Dashboard: FC<pageProps> = ({ params }) => {
 
   useEffect(() => {
     calculateAvailableTyreSets(sessions, tyreSets, setAvailableTyreSets);
-    if(!checkForShortage(sessions, availableTyreSets, tyreSets)){
+    if (!checkForShortage(sessions, availableTyreSets, tyreSets)) {
       alert(
         "You have allocated all tyre sets to other sessions. Please ensure at least one new tyre set is reserved for the Race session!"
       );
@@ -66,13 +69,13 @@ const Dashboard: FC<pageProps> = ({ params }) => {
   const handleSave = async () => {
     try {
       const cleanData = JSON.parse(stringify({ sessions, tyreSets }));
-      await axios.put('/api/dashboard', cleanData);
+      await axios.put("/api/dashboard", cleanData);
       alert("Dashboard saved successfully!");
     } catch (error) {
       console.error("Error while saving dashboard: ", error);
       alert("Something went wrong. Please try again later!");
     }
-  }
+  };
 
   const handleBack = () => {
     confirm({

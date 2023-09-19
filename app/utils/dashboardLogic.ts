@@ -30,12 +30,19 @@ export const calculateAvailableTyreSets = (
   setAvailableTyreSets(computedAvailableTyreSets);
 };
 
-export const checkForShortage = (sessions: Session[], availableTyreSets: TyreSet[], tyreSets: TyreSet[]) => {
-  if(availableTyreSets.length && !availableTyreSets.some((s) => s.state === TyreStates.NEW)){
+export const checkForShortage = (
+  sessions: Session[],
+  availableTyreSets: TyreSet[],
+  tyreSets: TyreSet[]
+) => {
+  if (
+    availableTyreSets.length &&
+    !availableTyreSets.some((s) => s.state === TyreStates.NEW)
+  ) {
     const raceSession = sessions.filter(
       (session: Session) => session.type === SessionType.RACE
     )[0] as Session;
-    for(let tyreSet of tyreSets){
+    for (let tyreSet of tyreSets) {
       if (
         tyreSet.sessionsUsedIn &&
         tyreSet.sessionsUsedIn.some((s) => s._id === raceSession._id)

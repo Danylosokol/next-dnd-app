@@ -42,7 +42,6 @@ export const validateWeekendForm = (
   const totalTyres = softTyres + mediumTyres + hardTyres;
 
   const totalReturns = sessions.reduce((current, session) => (current += session.numOfReturns), 0);
-  console.log(totalReturns);
   if(totalReturns >= totalTyres){
     return {
       isValid: false,

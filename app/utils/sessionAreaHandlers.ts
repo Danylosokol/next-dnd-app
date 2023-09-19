@@ -29,7 +29,9 @@ export const handleDrop = (
     sessions.findIndex((s) => s._id === session._id)
   );
   if (
-    previousSessions.some((s) => s.tyresToReturn?.some((t) => t._id === tyre._id))
+    previousSessions.some((s) =>
+      s.tyresToReturn?.some((t) => t._id === tyre._id)
+    )
   ) {
     alert(
       "This tyre set was returned in previous session and cannot be used here!"
@@ -68,9 +70,14 @@ export const handleReturnTyreSet = (
   const sessionIndex = sessions.findIndex((s) => s._id === session._id);
   const futureSessions = sessions.slice(sessionIndex + 1);
   if (session.tyresToReturn?.some((r) => r._id === tyre._id)) {
-    session.tyresToReturn = session.tyresToReturn.filter((r) => r._id !== tyre._id);
+    session.tyresToReturn = session.tyresToReturn.filter(
+      (r) => r._id !== tyre._id
+    );
   } else {
-    if (session.tyresToReturn && session.tyresToReturn.length >= session.numOfReturns) {
+    if (
+      session.tyresToReturn &&
+      session.tyresToReturn.length >= session.numOfReturns
+    ) {
       alert("Maximum tyre returns reached for this session");
       return;
     }
@@ -125,7 +132,9 @@ export const handleDeleteTyreSet = (
   setSessions: Dispatch<SetStateAction<Session[]>>
 ) => {
   if (session.tyresToReturn?.some((t) => t._id === tyre._id)) {
-    session.tyresToReturn = session.tyresToReturn.filter((t) => t._id !== tyre._id);
+    session.tyresToReturn = session.tyresToReturn.filter(
+      (t) => t._id !== tyre._id
+    );
     setSessions((prevSessions) => {
       const updatedSessions = [...prevSessions];
       const targetSessionIndex = updatedSessions.findIndex(
@@ -136,7 +145,9 @@ export const handleDeleteTyreSet = (
     });
   }
   // @ts-ignore
-  tyre.sessionsUsedIn = tyre.sessionsUsedIn.filter((s) => s._id !== session._id);
+  tyre.sessionsUsedIn = tyre.sessionsUsedIn.filter(
+    (s) => s._id !== session._id
+  );
   if (!tyre.sessionsUsedIn.length) {
     tyre.state = TyreStates.NEW;
   }

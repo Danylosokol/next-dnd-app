@@ -22,7 +22,9 @@ export default function RootLayout({
       <ConfirmProvider>
         <body className={inter.className}>
           <Header />
-          <main className="px-2 md:px-10 py-4 bg-gray-50 min-h-[86dvh] 2xl:min-h-[91dvh]">{children}</main>
+          <main className="px-2 md:px-10 py-4 bg-gray-50 min-h-[86dvh] 2xl:min-h-[91dvh]">
+            {children}
+          </main>
         </body>
       </ConfirmProvider>
     </html>

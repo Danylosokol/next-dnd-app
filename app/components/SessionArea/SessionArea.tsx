@@ -50,7 +50,9 @@ const SessionArea: FC<pageProps> = ({
     const matched: TyreSet[] = tyreSets.filter(
       (tyre) =>
         tyre.sessionsUsedIn &&
-        tyre.sessionsUsedIn.some((s) => s._id?.toString() === session._id?.toString())
+        tyre.sessionsUsedIn.some(
+          (s) => s._id?.toString() === session._id?.toString()
+        )
     );
     return matched;
   };
@@ -73,8 +75,8 @@ const SessionArea: FC<pageProps> = ({
           <p className="my-2 font-semibold select-none">No returns</p>
         ) : (
           <p className="my-2 font-semibold select-none">
-            Returned: {session.tyresToReturn ? session.tyresToReturn.length : 0}/
-            {session.numOfReturns}
+            Returned: {session.tyresToReturn ? session.tyresToReturn.length : 0}
+            /{session.numOfReturns}
           </p>
         )}
       </div>
@@ -87,7 +89,9 @@ const SessionArea: FC<pageProps> = ({
             >
               {session.type !== SessionType.RACE && (
                 <Checkbox
-                  checked={session.tyresToReturn?.some((t) => t._id === tyre._id)}
+                  checked={session.tyresToReturn?.some(
+                    (t) => t._id === tyre._id
+                  )}
                   onChange={() =>
                     handleReturnTyreSet(
                       tyre,

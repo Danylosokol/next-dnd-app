@@ -46,8 +46,8 @@ describe("Dashboard Page Testing", () => {
       const tyreNumber = screen.getByText(
         weekendsAPIData[0].tyreSets[0]._id.substring(
           weekendsAPIData[0].tyreSets[0]._id.length - 4
-        )
-       + " - Used");
+        ) + " - Used"
+      );
       expect(tyreNumber).toBeInTheDocument();
     });
   });
@@ -56,8 +56,7 @@ describe("Dashboard Page Testing", () => {
     render(<Dashboard params={{ id: "6505c90224ae1ad1ee8a4c22" }} />);
 
     await waitFor(() => {
-      const sessionName = screen.getByText(
-        weekendsAPIData[0].sessions[0].name);
+      const sessionName = screen.getByText(weekendsAPIData[0].sessions[0].name);
       expect(sessionName).toBeInTheDocument();
     });
   });

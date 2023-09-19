@@ -22,7 +22,9 @@ export default function Home() {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("/api/weekends");
+      const response = await axios.get("/api/weekends", {
+        headers: { "Cache-Control": "no-store" },
+      });
       setAllWeekends(response.data as Weekend[]);
     } catch (error) {
       console.error("Error while getting all weekends: ", error);

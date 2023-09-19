@@ -1,8 +1,4 @@
-import {
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 import Home from "@/app/page";
 import axios from "axios";
@@ -17,12 +13,11 @@ jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 mockedAxios.get.mockImplementation(async () =>
   Promise.resolve({
-     data: weekendsAPIData,
+    data: weekendsAPIData,
   })
 );
 
 describe("Home Page Testing", () => {
-
   it('Should have "Race Weekends" on the front page', async () => {
     // @ts-ignore
     useRouter.mockReturnValue({

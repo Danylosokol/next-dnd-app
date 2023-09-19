@@ -92,10 +92,10 @@ describe("Edit Weekend Page Testing", () => {
       render(<EditWeekend />);
     });
 
-   await waitFor(() => {
-     expect(
-       screen.getByText("Free Practice - 2 tyres to return")
-     ).toBeInTheDocument();
-   });
+    await waitFor(() => {
+      expect(
+        screen.getByText("Free Practice - 2 tyres to return")
+      ).toBeInTheDocument();
+    });
   });
 });

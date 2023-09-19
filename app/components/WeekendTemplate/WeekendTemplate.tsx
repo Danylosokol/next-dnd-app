@@ -35,10 +35,9 @@ function WeekendTemplate({ weekends, setWeekendFromTemplate }: Props) {
           ))}
         </Select>
       </FormControl>
-      <div>
+      <div className="mt-3">
         <Button
           variant="outlined"
-          className="mt-3"
           onClick={() => setWeekendFromTemplate(templateId as Types.ObjectId)}
         >
           Copy

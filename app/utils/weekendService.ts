@@ -57,34 +57,34 @@ export const copyFromTemplate = async (
   setSoftTyres: Dispatch<SetStateAction<number | null>>,
   setMediumTyres: Dispatch<SetStateAction<number | null>>,
   setHardTyres: Dispatch<SetStateAction<number | null>>,
-  setSessions: Dispatch<SetStateAction<Session[]>>,
+  setSessions: Dispatch<SetStateAction<Session[]>>
 ) => {
   setSoftTyres(
-        template.tyreSets.filter(
-          (tyreSet: TyreSet) => tyreSet.type === TyreTypes.SOFT
-        ).length
-      );
-      setMediumTyres(
-        template.tyreSets.filter(
-          (tyreSet: TyreSet) => tyreSet.type === TyreTypes.MEDIUM
-        ).length
-      );
-      setHardTyres(
-        template.tyreSets.filter(
-          (tyreSet: TyreSet) => tyreSet.type === TyreTypes.HARD
-        ).length
-      );
-      setSessions(
-        template.sessions.filter(
-          (session: Session) => session.type !== SessionType.RACE
-        ).map((session: Session) => {
-          return {
-            name: session.name,
-            numOfReturns: session.numOfReturns,
-            type: session.type
-          }
-        })
-      );
+    template.tyreSets.filter(
+      (tyreSet: TyreSet) => tyreSet.type === TyreTypes.SOFT
+    ).length
+  );
+  setMediumTyres(
+    template.tyreSets.filter(
+      (tyreSet: TyreSet) => tyreSet.type === TyreTypes.MEDIUM
+    ).length
+  );
+  setHardTyres(
+    template.tyreSets.filter(
+      (tyreSet: TyreSet) => tyreSet.type === TyreTypes.HARD
+    ).length
+  );
+  setSessions(
+    template.sessions
+      .filter((session: Session) => session.type !== SessionType.RACE)
+      .map((session: Session) => {
+        return {
+          name: session.name,
+          numOfReturns: session.numOfReturns,
+          type: session.type,
+        };
+      })
+  );
 };
 
 export const getWeekends = async (
@@ -163,7 +163,10 @@ export const updateWeekend = async (
   for (let i = 0; i < hardTyres; i++) {
     tyreSets.push({ type: TyreTypes.HARD, state: TyreStates.NEW });
   }
-  const oldSessions = weekend.sessions.filter((session) => !sortedSessions.some((newSession) => newSession._id === session._id));
+  const oldSessions = weekend.sessions.filter(
+    (session) =>
+      !sortedSessions.some((newSession) => newSession._id === session._id)
+  );
   const data = {
     _id: weekend._id,
     name,

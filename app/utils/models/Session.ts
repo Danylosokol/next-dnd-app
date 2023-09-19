@@ -1,4 +1,4 @@
-import {Ref, getModelForClass, prop} from "@typegoose/typegoose";
+import { Ref, getModelForClass, prop } from "@typegoose/typegoose";
 import mongoose, { Types } from "mongoose";
 
 import { SessionType } from "../consts/SessionConsts";
@@ -21,7 +21,5 @@ export class Session {
   public tyresToReturn?: Ref<TyreSet>[];
 }
 
-
 export const SessionModel =
-  mongoose.models.Session ||
-  getModelForClass(Session);
+  mongoose.models.Session || getModelForClass(Session);

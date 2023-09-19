@@ -38,7 +38,10 @@ export async function GET(request: NextRequest) {
           model: TyreSetModel,
         },
       })
-      .exec();
+      .exec()
+      .catch((e) => {
+        throw e;
+      });
     return NextResponse.json(weekend);
   } catch (error) {
     console.error(error);

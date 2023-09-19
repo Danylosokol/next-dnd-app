@@ -39,7 +39,6 @@ function EditWeekend() {
   }, []);
 
   const handleUpdate = async () => {
-    console.log("handling submit...");
     const validationResponse = validateWeekendForm(
       name,
       softTyres,
@@ -48,23 +47,22 @@ function EditWeekend() {
       sessions
     );
     if (validationResponse.isValid) {
-
-        const response = await updateWeekend(
-          weekend as Weekend,
-          name,
-          // @ts-ignore
-          softTyres,
-          mediumTyres,
-          hardTyres,
-          sessions
-        );
+      const response = await updateWeekend(
+        weekend as Weekend,
+        name,
         // @ts-ignore
-        if(response.error){
-          alert("Something went wrong...");
-        }else{
-          alert("Weekend was updated successfully");
-          push("/");
-        }
+        softTyres,
+        mediumTyres,
+        hardTyres,
+        sessions
+      );
+      // @ts-ignore
+      if (response.error) {
+        alert("Something went wrong...");
+      } else {
+        alert("Weekend was updated successfully");
+        push("/");
+      }
     } else {
       alert(validationResponse.errorMessage);
     }

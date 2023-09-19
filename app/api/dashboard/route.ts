@@ -26,21 +26,21 @@ export async function PUT(request: NextRequest) {
 
   try {
     for (let weekendSession of sessions) {
-      if(weekendSession.tyresToReturn) {
-         await SessionModel.findByIdAndUpdate(
-           weekendSession._id,
-           {
-             tyresToReturn: weekendSession.tyresToReturn.map(
-               // @ts-ignore
-               (s: Session) => s._id
-             ),
-           },
-           { session }
-         );
+      if (weekendSession.tyresToReturn) {
+        await SessionModel.findByIdAndUpdate(
+          weekendSession._id,
+          {
+            tyresToReturn: weekendSession.tyresToReturn.map(
+              // @ts-ignore
+              (s: Session) => s._id
+            ),
+          },
+          { session }
+        );
       }
     }
     for (let tyreSet of tyreSets) {
-      if(tyreSet.sessionsUsedIn){
+      if (tyreSet.sessionsUsedIn) {
         await TyreSetModel.findByIdAndUpdate(
           tyreSet._id,
           {

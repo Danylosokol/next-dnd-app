@@ -23,7 +23,10 @@ function WeekendCard({ weekend, onDelete }: Props) {
   };
 
   return (
-    <Card className="hover:cursor-pointer w-full sm:w-[49%] md:w-[30%]" onClick={openDashboard}>
+    <Card
+      className="hover:cursor-pointer w-full sm:w-[49%] md:w-[30%]"
+      onClick={openDashboard}
+    >
       <CardContent>
         <h2 className="truncate select-none">{weekend.name}</h2>
         <ul className="m-0 p-0 list-none">

@@ -75,7 +75,7 @@ describe("Create Weekend Page Testing", () => {
 
   it("On empty form submition have to invoke an alert with 'Name is required!' text", async () => {
     jest.spyOn(window, "alert").mockImplementation(() => {});
-    
+
     // @ts-ignore
     useRouter.mockReturnValue({
       push: jest.fn(),
@@ -85,10 +85,10 @@ describe("Create Weekend Page Testing", () => {
     await act(async () => {
       render(<CreateWeekend />);
     });
-    
-    const addSessionBtn = screen.getByTestId("button-save");;
+
+    const addSessionBtn = screen.getByTestId("button-save");
     fireEvent.click(addSessionBtn);
-    
+
     await waitFor(() => {
       expect(window.alert).toBeCalledWith("Name is required!");
     });

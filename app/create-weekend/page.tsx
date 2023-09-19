@@ -59,8 +59,6 @@ function CreateWeekend() {
     const template: Weeked = createdWeekends.filter(
       (weekend) => weekend._id === templateId
     )[0];
-    console.log("Choosen template:");
-    console.log(template);
     if (template) {
       copyFromTemplate(
         template,
