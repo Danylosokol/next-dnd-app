@@ -40,6 +40,8 @@ This project is a take-home coding challenge, the aim of which is to create a we
 - [Mongoose / Typegoose](https://mongoosejs.com/)
 - [Axios](https://axios-http.com/)
 
+The application has been deployed on Vercel and can be used at this link: [next-dnd-app.vercel.app](https://next-dnd-app.vercel.app)
+
 The application has a responsive design and has been tested in the following browsers:
 - Google Chrome 
 - Safari
